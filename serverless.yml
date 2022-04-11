@@ -28,8 +28,8 @@ functions:
         Action:
         - "s3:Put*"
         Resource: arn:aws:s3:::${self:custom.fileUploadBucketName}/*
-      environment:
-        FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileUploadBucketName}
+    environment:
+      FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileUploadBucketName}
 
 
 resources:
