@@ -20,13 +20,13 @@ module.exports.handler = async(event) => {
             Bucket: BUCKET_NAME,
             Key: `images/${new Date().toISOString()}.jpeg`,
             body: decodedFile,
-            ContentType: 'image/jpeg',
+            ContentType: "image/jpeg",
         };
         const uploadResult = await s3.upload(parameters).promise();
-        response.body = JSON.stringify({message: "Successfully uploaded the file to S3"});
+        response.body = JSON.stringify({message: "Successfully uploaded the file to S3", uploadResult});
     } catch(e) {
-        console.log(e);
-        response.body = JSON.stringify({message: "Failed to upload the file to S3"});
+        console.error(e);
+        response.body = JSON.stringify({message: "Failed to upload the file to S3", errorMessage: e});
         response.statusCode = 500;
     }
 
