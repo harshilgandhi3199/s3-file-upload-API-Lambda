@@ -31,7 +31,6 @@ functions:
     environment:
       FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileUploadBucketName}
 
-
 resources:
   Resources: 
     FileUploadBucket:
